@@ -1,3 +1,24 @@
+diff --git a/Python/dynload_shlib.c b/Python/dynload_shlib.c
+index 6761bba457..c1d25b02d6 100644
+--- a/Python/dynload_shlib.c
++++ b/Python/dynload_shlib.c
+@@ -38,12 +38,13 @@ const char *_PyImport_DynLoadFiletab[] = {
+ #ifdef __CYGWIN__
+     ".dll",
+ #else  /* !__CYGWIN__ */
+-    "." SOABI ".so",
++    "." SOABI ".so", "." SOABI ".dylib",
+ #ifdef ALT_SOABI
+-    "." ALT_SOABI ".so",
++    "." ALT_SOABI ".so", "." ALT_SOABI ".dylib",
+ #endif
+     ".abi" PYTHON_ABI_STRING ".so",
+-    ".so",
++    ".abi" PYTHON_ABI_STRING ".dylib",
++    ".so", ".dylib",
+ #endif  /* __CYGWIN__ */
+     NULL,
+ };
 --- /dev/null
 +++ b/Lib/_ios_support.py
 @@ -0,0 +1,36 @@

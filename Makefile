@@ -551,7 +551,8 @@ $$(PYTHON_SRCDIR-$(target))/Makefile: \
 			CXX="$$(CXX-$(target))" \
 			CFLAGS="$$(CFLAGS-$(target))" \
 			LDFLAGS="$$(LDFLAGS-$(target))" \
-                        LDSHARED="$$(CC-$(target)) -dynamiclib -undefined dynamic_lookup" \
+			LDSHARED="$$(CC-$(target)) -dynamiclib -undefined dynamic_lookup" \
+			SHLIB_SUFFIX=".dylib" \
 			LIBLZMA_CFLAGS="-I$$(XZ_MERGE-$$(SDK-$(target)))/include" \
 			LIBLZMA_LIBS="-L$$(XZ_MERGE-$$(SDK-$(target)))/lib -llzma" \
 			BZIP2_CFLAGS="-I$$(BZIP2_MERGE-$$(SDK-$(target)))/include" \
@@ -771,7 +772,8 @@ $$(PYTHON_SRCDIR-$(sdk))/Makefile: \
 			CPP="$$(CPP-$(sdk))" \
 			CFLAGS="$$(CFLAGS-$(sdk))" \
 			LDFLAGS="$$(LDFLAGS-$(sdk))" \
-                        LDSHARED="$$(CC-$(sdk)) -dynamiclib -undefined dynamic_lookup" \
+			LDSHARED="$$(CC-$(sdk)) -dynamiclib -undefined dynamic_lookup" \
+			SHLIB_SUFFIX=".dylib" \
 			LIBLZMA_CFLAGS="-I$$(XZ_MERGE-$(sdk))/include" \
 			LIBLZMA_LIBS="-L$$(XZ_MERGE-$(sdk))/lib -llzma" \
 			BZIP2_CFLAGS="-I$$(BZIP2_MERGE-$(sdk))/include" \
